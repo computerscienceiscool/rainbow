@@ -138,7 +138,7 @@ Garbage collection can also be manually triggered. This process can be automated
 
 The API route to trigger GC is `http://$RAINBOW_CTL_LISTEN_ADDRESS/mgr/gc`. The `BytesToFree` parameter must be passed as JSON in the POST request body to specify the upper limit of how much disk space should be cleared. GC will try to clear as much space as needed, up to `BytesToFree`, to create `RAINBOW_GC_THRESHOLD` of free space. Setting this parameter to a very high value will GC the entire datastore.
 
-Example cURL commmand to run GC:
+Example cURL command to run GC:
 
     curl -v --data '{"BytesToFree": 1099511627776}' http://127.0.0.1:8091/mgr/gc
 
@@ -156,11 +156,11 @@ Connections to a specific peer, or to all peers, can be closed and the peer info
 
 If `RAINBOW_DHT_SHARED_HOST=false` this endpoint will not show peers connected to DHT host, and only list ones used for Bitswap.
 
-- `http://$RAINBOW_CTL_LISTEN_ADDRESS/mgr/purge?peer=<peer_id>` purges connection and info for peer identifid by peer_id
+- `http://$RAINBOW_CTL_LISTEN_ADDRESS/mgr/purge?peer=<peer_id>` purges connection and info for peer identified by peer_id
 - `http://$RAINBOW_CTL_LISTEN_ADDRESS/mgr/purge?peer=all` purges connections and info for all peers
 - `http://$RAINBOW_CTL_LISTEN_ADDRESS/mgr/peers` returns a list of currently connected peers
 
-Example cURL commmand to show connected peers and purge peer connection:
+Example cURL command to show connected peers and purge peer connection:
 
     curl http://127.0.0.1:8091/mgr/peers
     curl http://127.0.0.1:8091/mgr/purge?peer=QmQzqxhK82kAmKvARFZSkUVS6fo9sySaiogAnx5EnZ6ZmC
